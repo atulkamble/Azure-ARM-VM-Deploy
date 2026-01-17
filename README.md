@@ -1,30 +1,147 @@
-```
+![Image](https://ravichaganti.com/images/armin30/templatearchitecture.png)
+
+![Image](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+
+![Image](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/media/overview/consistent-management-layer.png)
+
+# 🟦 Azure ARM VM Deployment – Complete Documentation
+
+**Repository:** `Azure-ARM-VM-Deploy`
+**Author:** Atul Kamble (Cloud Solutions Architect)
+**Platform:** Microsoft Azure
+**IaC Tool:** Azure ARM Templates
+**Audience:** Azure / DevOps Engineers, IaC Learners, Trainers
+
+---
+
+## 📌 Project Overview
+
+This project demonstrates **Infrastructure as Code (IaC)** using **Azure ARM Templates** to deploy a **Linux Virtual Machine** along with:
+
+* Resource Group
+* Virtual Network & Subnet
+* Public IP
+* Network Interface
+* Ubuntu Linux VM
+
+Deployment can be done using:
+
+* ✅ Automated **Shell Script**
+* ✅ Manual **Azure CLI commands**
+
+---
+
+## 🧰 Prerequisites
+
+Before starting, ensure:
+
+* Azure Subscription (Contributor access)
+* Azure CLI installed
+* Logged in via `az login`
+* Git installed
+* Bash shell (Linux/macOS/WSL)
+
+---
+
+## 📥 Step 1: Clone the Repository
+
+```bash
 git clone https://github.com/atulkamble/Azure-ARM-VM-Deploy.git
 cd Azure-ARM-VM-Deploy
 ```
-// on terminal 
+
+📂 **Repository Contents**
+
 ```
+Azure-ARM-VM-Deploy/
+├── azuredeploy.json
+├── azuredeploy.parameters.json
+├── deploy.sh
+└── README.md
+```
+
+---
+
+## 🚀 Step 2: Deployment Options
+
+---
+
+## 🔹 Option A: Automated Deployment (Recommended)
+
+### Make script executable
+
+```bash
 chmod +x deploy.sh
+```
+
+### Run deployment
+
+```bash
 ./deploy.sh
 ```
-or 
-```
-az group create --name MyResourceGroup --location eastus
-az deployment group create --resource-group MyResourceGroup --template-file azuredeploy.json --parameters vmName=myVM adminUsername=atul adminPassword=Ethans@123
-az group delete --name MyResourceGroup --yes --no-wait
-```
----
 
-# 🟦 **Azure ARM Templates – Cheatsheet & Codes**
+### What `deploy.sh` does:
 
-**Author:** Atul Kamble (Cloud Solutions Architect)
-**Use Cases:** Azure DevOps, IaC, Automation, Training, Projects
+1. Creates Resource Group
+2. Deploys ARM template
+3. Passes VM parameters
+4. Displays output (Public IP)
+
+✔️ Best for **CI/CD pipelines & training demos**
 
 ---
 
-# 📘 **1. ARM Template Basics**
+## 🔹 Option B: Manual Azure CLI Deployment
 
-### ✅ **ARM Template Structure**
+### 1️⃣ Create Resource Group
+
+```bash
+az group create \
+  --name MyResourceGroup \
+  --location eastus
+```
+
+---
+
+### 2️⃣ Deploy ARM Template
+
+```bash
+az deployment group create \
+  --resource-group MyResourceGroup \
+  --template-file azuredeploy.json \
+  --parameters vmName=myVM adminUsername=atul adminPassword=Ethans@123
+```
+
+📌 **Parameters Explained**
+
+| Parameter     | Description                             |
+| ------------- | --------------------------------------- |
+| vmName        | Name of the Virtual Machine             |
+| adminUsername | Linux admin user                        |
+| adminPassword | Secure password (use Key Vault in prod) |
+
+---
+
+### 3️⃣ (Optional) Delete Resource Group
+
+```bash
+az group delete \
+  --name MyResourceGroup \
+  --yes \
+  --no-wait
+```
+
+⚠️ Deletes **ALL** resources in the group
+
+---
+
+# 🟦 Azure ARM Templates – Cheatsheet & Codes
+
+---
+
+## 📘 1. ARM Template Basics
+
+### ARM Template Structure
 
 ```json
 {
@@ -39,9 +156,9 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ---
 
-# 🧩 **2. Parameters Section Examples**
+## 🧩 2. Parameters Section
 
-### 🟦 **Basic Parameter**
+### Basic Parameter
 
 ```json
 "adminUsername": {
@@ -50,7 +167,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 }
 ```
 
-### 🔐 **Secure Password**
+### Secure Password
 
 ```json
 "adminPassword": {
@@ -58,7 +175,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 }
 ```
 
-### 🗂 **Allowed Values**
+### Allowed Values
 
 ```json
 "vmSize": {
@@ -74,7 +191,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ---
 
-# ♻️ **3. Variables Section**
+## ♻️ 3. Variables Section
 
 ```json
 "variables": {
@@ -86,23 +203,9 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ---
 
-# 🏗 **4. Common ARM Resource Templates**
+## 🏗 4. Common ARM Resources
 
----
-
-## 🌐 **4.1 Resource Group Deployment Command**
-
-```bash
-az group create --name myrg --location eastus
-az deployment group create \
-  --resource-group myrg \
-  --template-file azuredeploy.json \
-  --parameters @azuredeploy.parameters.json
-```
-
----
-
-## 🖧 **4.2 Virtual Network**
+### 4.1 Virtual Network
 
 ```json
 {
@@ -128,7 +231,7 @@ az deployment group create \
 
 ---
 
-## 🌐 **4.3 Public IP**
+### 4.2 Public IP
 
 ```json
 {
@@ -144,7 +247,7 @@ az deployment group create \
 
 ---
 
-## 🧷 **4.4 Network Interface**
+### 4.3 Network Interface
 
 ```json
 {
@@ -172,7 +275,7 @@ az deployment group create \
 
 ---
 
-## 💻 **4.5 Linux Virtual Machine**
+### 4.4 Linux Virtual Machine
 
 ```json
 {
@@ -213,7 +316,7 @@ az deployment group create \
 
 ---
 
-# 📤 **5. Outputs Example**
+## 📤 5. Outputs
 
 ```json
 "outputs": {
@@ -226,83 +329,39 @@ az deployment group create \
 
 ---
 
-# 🛠 **6. ARM Template Deployment Commands**
-
-### 🟦 **Group Deployment**
-
-```bash
-az deployment group create \
---resource-group myrg \
---template-file azuredeploy.json \
---parameters vmName=myvm adminUsername=atul adminPassword=Ethans@123
-```
-
-### 🟩 **Subscription Deployment**
-
-```bash
-az deployment sub create \
---location eastus \
---template-file main.json
-```
-
----
-
-# 🔁 **7. Linked Templates (Nested ARM)**
-
-### **Main Template**
-
-```json
-{
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2020-06-01",
-  "name": "linkedTemplate",
-  "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri": "https://raw.githubusercontent.com/atulkamble/.../vnet.json"
-    }
-  }
-}
-```
-
----
-
-# 🪄 **8. ARM Functions Quick Reference**
-
-| Function       | Example                                   | Description         |
-| -------------- | ----------------------------------------- | ------------------- |
-| `concat()`     | concat('vm','01')                         | Join strings        |
-| `resourceId()` | resourceId('Microsoft.Network/vnet','v1') | Get resource ID     |
-| `reference()`  | reference('mypip').ipAddress              | Fetch runtime value |
-| `variables()`  | variables('location')                     | Access variables    |
-| `parameters()` | parameters('vmSize')                      | Access parameters   |
-
----
-
-# 🧪 **9. Testing ARM Template**
+## 🧪 6. Test Deployment (What-If)
 
 ```bash
 az deployment group what-if \
-  --resource-group myrg \
+  --resource-group MyResourceGroup \
   --template-file azuredeploy.json \
   --parameters @azuredeploy.parameters.json
 ```
 
 ---
 
-# 📂 **10. Recommended ARM Template Folder Structure**
+## 📂 7. Recommended Folder Structure
 
 ```
 arm/
- ├── main.json
- ├── azuredeploy.json
- ├── azuredeploy.parameters.json
- ├── templates/
- │    ├── vnet.json
- │    ├── vm.json
- │    ├── nsg.json
- └── scripts/
-      └── deploy.sh
+├── main.json
+├── azuredeploy.json
+├── azuredeploy.parameters.json
+├── templates/
+│   ├── vnet.json
+│   ├── vm.json
+│   └── nsg.json
+└── scripts/
+    └── deploy.sh
 ```
+
+---
+
+## 🏁 Final Notes
+
+✅ Use **Key Vault** for passwords in production
+✅ Prefer **Incremental mode** deployments
+✅ ARM is ideal for **Azure-native IaC**
+✅ For multi-cloud → consider Terraform/Bicep
 
 ---
