@@ -1,6 +1,6 @@
 ```
-git clone https://github.com/atulkamble/azure-arm-vm-deploy.git
-cd azure-arm-vm-deploy
+git clone https://github.com/atulkamble/Azure-ARM-VM-Deploy.git
+cd Azure-ARM-VM-Deploy
 ```
 // on terminal 
 ```
