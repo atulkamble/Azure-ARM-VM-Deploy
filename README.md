@@ -143,7 +143,7 @@ az group create \
 az deployment group create \
   --resource-group MyResourceGroup \
   --template-file azuredeploy.json \
-  --parameters vmName=myVM adminUsername=atul adminPassword=Ethans@123
+  --parameters vmName=myVM adminUsername=atul adminPassword=Password@123
 ```
 
 📌 **Parameters Explained**
