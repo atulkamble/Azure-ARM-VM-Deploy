@@ -23,7 +23,7 @@
       "metadata": {
         "description": "Globally unique Name for the Public IP used to access the Virtual Machine."
       },
-      "defaultValue": "mypip17"
+      "defaultValue": "mypip17-uniqueid"
     },
     "windowsOSVersion": {
       "type": "string",
@@ -72,15 +72,18 @@
       }
     },
     {
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2020-11-01",
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "[variables('publicIPAddressName')]",
       "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
       "tags": {
         "displayName": "PublicIPAddress"
       },
       "properties": {
-        "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+        "publicIPAllocationMethod": "Static",
         "dnsSettings": {
           "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
         }
