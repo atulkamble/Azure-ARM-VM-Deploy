@@ -109,7 +109,7 @@
         "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
       ],
       "properties": {
-        "hardwareProfile": { "vmSize": "A1_v2" },
+        "hardwareProfile": { "vmSize": "Standard_B1ls" },
         "storageProfile": {
           "imageReference": {
             "publisher": "Canonical",
