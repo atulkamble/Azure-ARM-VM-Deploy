@@ -385,9 +385,9 @@ arm/
 
 ## 🏁 Final Notes
 
-✅ Use **Key Vault** for passwords in production
-✅ Prefer **Incremental mode** deployments
-✅ ARM is ideal for **Azure-native IaC**
-✅ For multi-cloud → consider Terraform/Bicep
+- Use **Key Vault** for passwords in production
+- Prefer **Incremental mode** deployments
+- ARM is ideal for **Azure-native IaC**
+- For multi-cloud → consider Terraform/Bicep
 
 ---
