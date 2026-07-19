@@ -21,6 +21,8 @@ az deployment group create --resource-group MyResourceGroup --template-file azur
 
 ssh atul@20.115.34.151
 cat /etc/lsb-release
+hostnamectl
+uname -a
 
 az deployment group delete -g testrg -n deployment01
 
