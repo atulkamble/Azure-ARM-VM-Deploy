@@ -1,5 +1,5 @@
 <div align="center">
-<h1>🚀 Azure VM Deployment using *ARM* (Step-by-Step)</h1>
+<h1>🚀 Azure VM Deployment using ARM (Step-by-Step)</h1>
 <p><strong>Built with ❤️ by <a href="https://github.com/atulkamble">Atul Kamble</a></strong></p>
 
 <p>
