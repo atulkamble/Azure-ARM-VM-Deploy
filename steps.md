@@ -24,7 +24,9 @@ cat /etc/lsb-release
 hostnamectl
 uname -a
 
-az deployment group delete -g testrg -n deployment01
+az deployment group delete --resource-group MyResourceGroup --name deployment01
+
+az group delete --name MyResourceGroup --yes
 
 az group delete --name MyResourceGroup 
 ```
