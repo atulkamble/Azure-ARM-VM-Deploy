@@ -15,6 +15,8 @@ Update VMSize if required to Line No. 112
 
 az group create --name MyResourceGroup --location eastus
 
+az group list
+
 az deployment group create --resource-group MyResourceGroup --template-file azuredeploy.json --parameters vmName=myVM adminUsername=atul adminPassword=Password@123
 
 ssh atul@20.115.34.151
