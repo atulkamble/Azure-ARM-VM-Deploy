@@ -32,14 +32,11 @@
 <strong>Version 1.0.0</strong> | <strong>Last Updated:</strong> July 2026
 </div>
 
-![Image](https://ravichaganti.com/images/armin30/templatearchitecture.png)
-
-
-**Repository:** `Azure-ARM-VM-Deploy`
-**Author:** Atul Kamble (Cloud Solutions Architect)
-**Platform:** Microsoft Azure
-**IaC Tool:** Azure ARM Templates
-**Audience:** Azure / DevOps Engineers, IaC Learners, Trainers
+- **Repository:** `Azure-ARM-VM-Deploy`
+- **Author:** Atul Kamble (Cloud Solutions Architect)
+- **Platform:** Microsoft Azure
+- **IaC Tool:** Azure ARM Templates
+- **Audience:** Azure / DevOps Engineers, IaC Learners, Trainers
 
 ---
 
