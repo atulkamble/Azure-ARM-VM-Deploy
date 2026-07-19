@@ -29,16 +29,11 @@
 </a>
 </p>
 
-<strong>Version 1.0.0</strong> | <strong>Last Updated:</strong> January 2026
+<strong>Version 1.0.0</strong> | <strong>Last Updated:</strong> July 2026
 </div>
 
 ![Image](https://ravichaganti.com/images/armin30/templatearchitecture.png)
 
-![Image](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
-
-![Image](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/media/overview/consistent-management-layer.png)
-
-# 🟦 Azure ARM VM Deployment – Complete Documentation
 
 **Repository:** `Azure-ARM-VM-Deploy`
 **Author:** Atul Kamble (Cloud Solutions Architect)
